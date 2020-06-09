@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    /* background fallback color / fullscreen & centers image */
+    background: #C0DBE3 url('imgs/carolinie-cavalli-Qw3w0oBH63s-unsplash.jpg') no-repeat center center/cover;
+    min-height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+h1{
+    text-shadow:#396875 0 0 5px;
+}
+p{
+    color: #396875;
+}
+
+.container{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    position: relative;
+    transform: scale(1);
+}
+
+.mainCircle{
+    width: 100%;
+    height: 100%;
+    background-color: #DFEDF3;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    position: absolute;
+}
+
+.outerCircle{
+    width: 320px;
+    height: 320px;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    z-index: -20;
+    border-radius: 50%;
+    background: conic-gradient(
+    #85B4C1 0%,
+    #85B4C1 40%,
+    #C0DBE3 40%,
+    #C0DBE3 60%,
+    #A8CED8 60%,
+    #A8CED8 100%
+    );
+}
+
+.pointerContainer{
+    width: 20px;
+    height: 190px;
+    /* background-color: #000; */
+    top: -40px;
+    position: absolute;
+    animation: rotatePointer 7.5s linear forwards infinite;
+    transform-origin: bottom center;
+}
+
+.pointer{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: #396875 0 0 5px;
+}
+
+@keyframes rotatePointer {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes growContainer {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes shrinkContainer {
+    from {
+        transform: scale(1.2);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.container.grow{
+    animation: growContainer 3s linear forwards;
+}
+
+.container.shrink {
+    animation: shrinkContainer 3s linear forwards;
+}
